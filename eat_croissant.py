@@ -3,7 +3,7 @@ import random
 import paramiko
 import os
 import sys
-
+folder_name = 'lighten-rx'
 def eat(fileName) :
     hostname = "82.115.20.200"
     username = "root"
@@ -22,7 +22,7 @@ def eat(fileName) :
 
     sftp_client = client.open_sftp()
     destLoc = "./received_croissants/"
-    allData = ["/root/msgBroker/messages/jajerf/"+fileName+".txt"]
+    allData = ["/root/msgBroker/messages/"+folder_name+"/"+fileName+".txt"]
     for filetosend in allData:
         try:
             filename = os.path.basename(filetosend)

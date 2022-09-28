@@ -2,6 +2,7 @@ import random
 import paramiko
 import os
 import sys
+folder_name = 'lighten-rx'
 
 def bake(fileName) :
 
@@ -84,7 +85,7 @@ def bake(fileName) :
 
 
     sftp_client = client.open_sftp()
-    destLoc = "/root/msgBroker/messages/jajerf"
+    destLoc = "/root/msgBroker/messages/"+folder_name
     allData = ["./sended_croissants/"+fileName+".txt"]
     for filetosend in allData:
         filename = os.path.basename(filetosend)

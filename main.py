@@ -3,7 +3,7 @@ import bake_croissant
 import eat_croissant
 import paramiko
 import os
-
+folder_name = 'lighten-rx'
 hostname = "82.115.20.200"
 username = "root"
 password = "1QAZ2wsx"
@@ -34,7 +34,7 @@ if __name__ == "__main__" :
                 print("[!] Cannot connect to the SSH Server")
                 exit()
             sftp_client = client.open_sftp()
-            filesList = sftp_client.listdir("/root/msgBroker/messages/")
+            filesList = sftp_client.listdir("/root/msgBroker/messages/"+folder_name)
             readedFiles = os.listdir("./received_croissants")
             for fileName in filesList :
                 if not(fileName in readedFiles):
