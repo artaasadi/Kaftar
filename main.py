@@ -3,10 +3,10 @@ import bake_croissant
 import eat_croissant
 import paramiko
 import os
-folder_name = 'lighten-rx'
-hostname = "82.115.20.200"
-username = "root"
-password = "1QAZ2wsx"
+folder_name = ''
+hostname = "XX.XX.XX.XX"
+username = "USER"
+password = "PASS"
 if __name__ == "__main__" :
     print("==============================")
     print("          TYPE 'help'         ")
