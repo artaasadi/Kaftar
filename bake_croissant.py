@@ -2,7 +2,7 @@ import random
 import paramiko
 import os
 import sys
-folder_name = 'lighten-rx'
+folder_name = ''
 
 def bake(fileName) :
 
@@ -69,9 +69,9 @@ def bake(fileName) :
     f.write(croissant[:-1])
     f.close()
 
-    hostname = "82.115.20.200"
-    username = "root"
-    password = "1QAZ2wsx"
+    hostname = "XX.XX.XX.XX"
+    username = "USER"
+    password = "PASS"
 
     # initialize the SSH client
     client = paramiko.SSHClient()
