@@ -1,8 +1,11 @@
 import random
+import paramiko
+import os
+import sys
 
-if __name__ == "__main__":
+def bake(fileName) :
 
-    NAME = "LIGHTA"
+    NAME = "User"
 
     print("==============================")
     print(" TO BAKE CROISSANT ENTER: ::: ")
@@ -61,7 +64,36 @@ if __name__ == "__main__":
         croissant = croissant[:-1] + "."
 
     
-    f = open("./sended_croissants/croissant.txt", "w")
+    f = open("./sended_croissants/"+fileName+".txt", "w")
     f.write(croissant[:-1])
     f.close()
 
+    hostname = "82.115.20.200"
+    username = "root"
+    password = "1QAZ2wsx"
+
+    # initialize the SSH client
+    client = paramiko.SSHClient()
+    # add to known hosts
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    try:
+        client.connect(hostname=hostname, username=username, password=password)
+    except:
+        print("[!] Cannot connect to the SSH Server")
+        exit()
+
+
+    sftp_client = client.open_sftp()
+    destLoc = "/root/msgBroker/messages/jajerf"
+    allData = ["./sended_croissants/"+fileName+".txt"]
+    for filetosend in allData:
+        filename = os.path.basename(filetosend)
+        destFile = os.path.join(destLoc,filename) #renaming the file
+        print("file to send : ", filetosend)
+        print("receive : ", destFile)
+        sftp_client.put(filetosend, destFile) #send datafile filetosend to destFile
+        with open('RFidgetRunLogs.txt','a') as file:
+            file.write(f"{filetosend}, {destFile}\n") #add the run logs
+
+
+    sftp_client.close()
