@@ -3,8 +3,13 @@ import random
 import paramiko
 import os
 import sys
+
+
 folder_name = ''
+
+
 def eat(fileName) :
+    
     hostname = "XX.XX.XX.XX"
     username = "USER"
     password = "PASS"
@@ -36,7 +41,11 @@ def eat(fileName) :
 
 
     sftp_client.close()
-
+    
+    
+    #------------------------------------------------
+    
+    
     NAME = "User"
 
     f = open("recipe.txt", "r")
@@ -45,10 +54,25 @@ def eat(fileName) :
     f = open("./received_croissants/"+fileName+".txt", "r")
     pack = f.read().split(".")
 
-    print("\n {} :".format(NAME))
+    cover_date = []
+    for croissant in pack[:2]:
+        date = []
+        for roll in croissant.split(":"):
+            bite = ""
+            for crust in roll.split(","):
+                bite = bite + str(len(crust))
+            date.append(recipe[int(bite)])
+        cover_date.append("".join(date))
+    print()
+    print("------------------------------")
+    print(" {} | {} ".format(cover_date[0],cover_date[1]))
+    print("------------------------------")
 
-    for croissant in pack:
+
+    print(" {} :".format(NAME))
+    for croissant in pack[2:]:
         if (croissant == ""):
+            # read enter: [\n]
             print(" {}|  ".format( "".join([" " for i in range(len(NAME)+1)]) ) )
         else:
             yamyam = []
@@ -59,5 +83,7 @@ def eat(fileName) :
                 yamyam.append(recipe[int(bite)])
 
             print(" {}|  ".format( "".join([" " for i in range(len(NAME)+1)]) ) + "".join(yamyam))
+    print("------------------------------")
+    print()
 
 
