@@ -2,12 +2,18 @@ import random
 import paramiko
 import os
 import sys
+from datetime import datetime
+
+
 folder_name = ''
+
 
 def bake(fileName) :
 
     NAME = "User"
 
+    print()
+    print("______________________________")
     print("==============================")
     print(" TO BAKE CROISSANT ENTER: ::: ")
     print("==============================")
@@ -20,14 +26,23 @@ def bake(fileName) :
 
     materials = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/><\'\";]}[{|\\+=_-)(*&^%$#@!`~"
     
-    print("\n {} :".format(NAME))
-
-
+    print()
+    print("------------------------------")
+    now = datetime.now().strftime("%d-%m-%Y %H:%M:%S").split()
+    chocolate.append(list(now[0]))
+    chocolate.append(list(now[1]))
+    print(" {} | {} ".format(now[0],now[1]))
+    print("------------------------------")
+    
+    
+    print(" {} :".format(NAME))
     while(True):
         chocol = input( " {}|  ".format("".join([" " for i in range(len(NAME)+1)])) )
         if(chocol == ':::'):
             break
         chocolate.append(list(chocol))
+    print("------------------------------")
+    print()
 
 
     # f = open("new_update.txt", "r")
@@ -52,8 +67,6 @@ def bake(fileName) :
 
 
     croissant = ""
-
-
     for layers in paste:
         if (layers == []):
             croissant = croissant + "."
@@ -69,6 +82,8 @@ def bake(fileName) :
     f.write(croissant[:-1])
     f.close()
 
+    #------------------------------------------------
+    
     hostname = "XX.XX.XX.XX"
     username = "USER"
     password = "PASS"
