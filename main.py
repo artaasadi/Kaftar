@@ -12,7 +12,7 @@ if __name__ == "__main__" :
     print("          TYPE 'help'         ")
     print("==============================")
     while True:
-        action = input("DO SOMETHING !!!!! COME ON BITCH : ").split()
+        action = input("WHAT TO DO : ").split()
         if action[0] == "bake":
             if len(action) == 2 :
                 bake_croissant.bake(action[1])
@@ -45,10 +45,9 @@ if __name__ == "__main__" :
             print("==============================")
             print("          THE ACTIONS         ")
             print("==============================")
-            print("    |   To [write] a new message, type 'bake' and then the topic. Like 'bake kossher'.")
-            print("    |   To [read] a message, type 'eat' and then the topic. Like 'eat kossher'. (without '.txt')")
+            print("    |   To [write] a new message, type 'bake' and then the topic. Like 'bake sth'.")
+            print("    |   To [read] a message, type 'eat' and then the topic. Like 'eat sth'. (without '.txt')")
             print("    |   To see the [list] of messages, type 'list'.")
             print("    |   To [exit], type exit.")
-            print("    |   ***SEND A CHERRY EMOJI AND A HAND TO ME TO SHOW YOUR RESPECT***.")
         elif action[0] == "exit":
             exit()
